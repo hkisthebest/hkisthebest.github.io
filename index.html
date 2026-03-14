@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PicLocked</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family:
+        "Inter",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        sans-serif;
+      background: white;
+      color: black;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      padding: 30px 20px;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      flex-shrink: 0;
+    }
+
+    .app-name {
+      font-size: 36px;
+      font-weight: 700;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .dropdowns {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      margin-bottom: 15px;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      padding-right: 10px;
+    }
+
+    .faq-item:hover {
+      border-color: #000;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .faq-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .faq-question {
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px;
+      background: white;
+      transition: background 0.3s ease;
+    }
+
+    .faq-toggle {
+      font-size: 16px;
+      transition: transform 0.3s ease;
+      color: #666;
+    }
+
+    .faq-toggle.open {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      display: none;
+      color: #555;
+      line-height: 1.6;
+      padding: 0 24px 20px 24px;
+      background: white;
+    }
+
+    .faq-answer.open {
+      display: block;
+    }
+
+    .contact-info {
+      background: #f5f5f5;
+      padding: 20px;
+      margin-top: 30px;
+      border: 1px solid black;
+    }
+
+    .contact-info h3 {
+      margin-bottom: 15px;
+    }
+
+    .contact-info p {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="hero">
+    <img src="logo.png" alt="PicLocked Logo" class="logo" />
+    <div class="app-name">PicLocked</div>
+  </div>
+
+  <div class="container">
+    <!-- Dropdowns Section -->
+    <div class="dropdowns">
+      <div style="text-align: center; margin-bottom: 30px">
+        <a href="https://apps.apple.com" target="_blank">
+          <img src="appstore_logo.svg" alt="Download on the App Store" style="width: 150px; height: auto" />
+        </a>
+      </div>
+
+      <h1 style="
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 32px;
+            font-weight: 700;
+          ">
+        FAQ
+      </h1>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          <span>Where are my images/videos stored?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          Your images and videos are stored locally on your device. PicLocked
+          does not upload any of your media to the cloud, ensuring that your
+          content remains private and secure.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          <span>What if I forget my passcode?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          If you have enabled biometric authentication, you can use it to
+          access PicLocked and reset in the Setting tab. Otherwise, you will
+          have to reinstall the app, which will result in the loss of all data
+          stored in PicLocked. We recommend enabling biometric authentication
+          to avoid this situation.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          <span>How do I transfer the albums to a new device?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          We're currently working on import/export functionality for
+          transferring albums to a new device. In the meantime, you can bulk
+          transfer your images/videos to your new device using AirDrop (iOS),
+          and then add them to PicLocked on your new device. We understand
+          this is not ideal and appreciate your patience as we work on a more
+          seamless solution.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          <span>After adding images/videos, can I delete them from my
+            Apple/Android album?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          Yes, once you add images/videos to PicLocked, you can safely delete
+          them from your Apple/Android album without affecting the copies
+          stored in PicLocked.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          <span>Why can't I share live photos from my iOS Photos app?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          iOS does not support sharing live photos to third-party apps like PicLocked. To add live photos to PicLocked,
+          you can add them through PickLocked's built-in photo picker, which allows you to select live photos directly
+          from your iOS Photos library.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          <span>Can I save the images/videos to my device's album?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          Yes, you can save images/videos from PicLocked to your device's
+          album. To do this, select the images/videos you want to save, tap
+          the share button, and choose "Save Image".
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer style="text-align: center; padding: 30px 20px; color: #999; font-size: 14px;">
+    <a href="privacy.html" style="color: #555; text-decoration: none;">Privacy Policy</a>
+  </footer>
+
+  <script>
+    function toggleFAQ(element) {
+      const answer = element.nextElementSibling;
+      const toggle = element.querySelector(".faq-toggle");
+
+      answer.classList.toggle("open");
+      toggle.classList.toggle("open");
+    }
+  </script>
+</body>
+
+</html>
